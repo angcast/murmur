@@ -211,6 +211,7 @@ class ForwardingList(models.Model):
 class Group(models.Model):
 	id = models.AutoField(primary_key=True)
 	name = models.CharField(max_length=20, unique=True)
+	friendly_name = models.CharField(default='', max_length=20)
 	description = models.CharField(max_length=140)
 	public = models.BooleanField(default=True)
 	active = models.BooleanField(default=True)

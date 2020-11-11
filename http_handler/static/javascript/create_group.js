@@ -6,8 +6,8 @@ $(document).ready(function() {
     btn_create_group.click(function() {
 
         var params = {
-            'group_name' : $("#group-name").val(),
-            'friendly_name': $("#group-name").val().replaceAll(' ','_'),
+            'group_name' : $("#group-name").val().replaceAll(' ','_'),
+            'friendly_name': $("#group-name").val(),
             'group_desc' : $("#group-description").val(),
             'send_rejected_tagged' : true,
             'store_rejected' : true,
@@ -34,7 +34,7 @@ $(document).ready(function() {
             function(res) {
                 notify(res, true);
                 if (res.status) {
-                    window.location = '/groups/' + params.friendly_name;
+                    window.location = '/groups/' + params.group_name;
                 }
             }
         );

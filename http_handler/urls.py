@@ -28,7 +28,7 @@ urlpatterns = [
     url(r'^groups/(?P<group_name>[\w-]+)/edit_group_info', views.edit_group_info_view),
     url(r'^edit_group_info', views.edit_group_info),
     url(r'^group_info', views.group_info),
-    url(r'^groups/(?P<friendly_name>[\w-]+)$', views.group_page),
+    url(r'^groups/(?P<group_name>[\w-]+)$', views.group_page),
 
     url(r'^groups/(?P<group_name>[\w-]+)/add_members', views.add_members_view),
     url(r'^add_members', views.add_members),

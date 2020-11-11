@@ -302,9 +302,7 @@ def pub_group_list(request):
 
 	
 @render_to(WEBSITE+"/group_page.html")
-def group_page(request, friendly_name):
-	group_name = friendly_name.replace('_',' ')
-	logger.debug("group page")
+def group_page(request, group_name):
 	try:
 		user = get_object_or_404(UserProfile, email=request.user.email)
 		groups = Group.objects.filter(membergroup__member=user).values("name")
@@ -318,10 +316,10 @@ def group_page(request, friendly_name):
 
 	if group_info['group']:
 		return {'user': request.user, 'groups': groups, 'group_info': group_info, 'group_page': True, 
-		'admin_address' : friendly_name + '+admins@' + HOST, 'groups_links' : groups_links, 
+		'admin_address' : group_name + '+admins@' + HOST, 'groups_links' : groups_links, 
 		'active_group' : active_group, 'active_group_role' : active_group_role}
 	else:
-		return redirect('/404?e=gname&name=%s' % friendly_name)
+		return redirect('/404?e=gname&name=%s' % group_name)
 	
 	
 @render_to(WEBSITE+"/list_groups.html")
